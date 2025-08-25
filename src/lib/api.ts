@@ -2,7 +2,7 @@
 // src/lib/api.ts
 import type { MarcaOut, MarcaCreate } from "@/types";
 
-const BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://127.0.0.1:8000/api/v1";
+const BASE = process.env.NEXT_PUBLIC_API_BASE ?? "https://marcas-api.onrender.com/api/v1";
 
 async function handle<T>(res: Response): Promise<T> {
   if (!res.ok) {
