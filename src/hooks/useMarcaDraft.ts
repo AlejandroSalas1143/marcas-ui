@@ -63,35 +63,37 @@ export function useMarcaDraft() {
 
       titular: initial.titular
         ? {
-            tipo_persona: initial.titular.tipo_persona,
-            nombres: initial.titular.nombres ?? undefined,
-            apellidos: initial.titular.apellidos ?? undefined,
-            identificacion: initial.titular.identificacion ?? undefined,
-            razon_social: initial.titular.razon_social ?? undefined,
-            nit: initial.titular.nit ?? undefined,
-            rep_legal_nombres: initial.titular.rep_legal_nombres ?? undefined,
-            rep_legal_apellidos: initial.titular.rep_legal_apellidos ?? undefined,
-            rep_legal_identificacion: initial.titular.rep_legal_identificacion ?? undefined,
-          }
+          tipo_persona: initial.titular.tipo_persona,
+          nombres: initial.titular.nombres ?? undefined,
+          apellidos: initial.titular.apellidos ?? undefined,
+          identificacion: initial.titular.identificacion ?? undefined,
+          razon_social: initial.titular.razon_social ?? undefined,
+          nit: initial.titular.nit ?? undefined,
+          rep_legal_nombres: initial.titular.rep_legal_nombres ?? undefined,
+          rep_legal_apellidos: initial.titular.rep_legal_apellidos ?? undefined,
+          rep_legal_identificacion: initial.titular.rep_legal_identificacion ?? undefined,
+        }
         : undefined,
 
-      contacto: initial.titular?.contacto
+      // ⬇️ antes leías desde initial.titular?.contacto (venía null)
+      contacto: initial.contacto
         ? {
-            nombres: initial.titular.contacto.nombres,
-            apellidos: initial.titular.contacto.apellidos,
-            email: initial.titular.contacto.email,
-            telefono: initial.titular.contacto.telefono,
-            direccion: initial.titular.contacto.direccion,
-            pais: initial.titular.contacto.pais,
-            ciudad: initial.titular.contacto.ciudad,
-          }
+          nombres: initial.contacto.nombres,
+          apellidos: initial.contacto.apellidos,
+          email: initial.contacto.email,
+          telefono: initial.contacto.telefono,
+          direccion: initial.contacto.direccion,
+          pais: initial.contacto.pais,
+          ciudad: initial.contacto.ciudad,
+        }
         : undefined,
 
-      info_empresarial: initial.titular?.info_empresarial
+      // ⬇️ igual para info_empresarial: viene en la raíz
+      info_empresarial: initial.info_empresarial
         ? {
-            sector: initial.titular.info_empresarial.sector,
-            ingresos_anuales: Number(initial.titular.info_empresarial.ingresos_anuales ?? 0),
-          }
+          sector: initial.info_empresarial.sector,
+          ingresos_anuales: Number(initial.info_empresarial.ingresos_anuales ?? 0),
+        }
         : undefined,
     };
 
