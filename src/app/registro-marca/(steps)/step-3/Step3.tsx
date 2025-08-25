@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 import { useMarcaDraft } from "@/hooks/useMarcaDraft";
-import { useCreateMarca } from "@/hooks/useCreateMarca"; // <- expone crear y actualizar
+import { useCreateMarca } from "@/hooks/useCreateMarca";
 
 import { NotificationContainer } from "@/components/ui/Notifications";
 import { SummarySection } from "@/components/summary/SummarySection";
@@ -19,11 +19,10 @@ import type { MarcaOut } from "@/types";
 
 type Props = {
   initial?: MarcaOut;
-  mode?: "create" | "edit";     // override opcional
-  basePath?: string;            // navegación (default: /registro-marca)
+  mode?: "create" | "edit";
+  basePath?: string;
 };
 
-// --- helpers opcionales para marcar cambios ---
 function getPath(obj: any, path: (string | number)[]) {
   return path.reduce((acc, k) => (acc == null ? acc : acc[k as any]), obj);
 }
@@ -63,18 +62,16 @@ export default function Step3({
   const { draft, resetDraft, hydrated, mode } = useMarcaDraft();
   const [loading, setLoading] = useState(false);
 
-  // Asegúrate que este hook tenga actualizar(draft, setLoading)
   const { crear, actualizar, notifications, remove, add } = useCreateMarca();
 
   const handlePrimary = async () => {
     try {
       if (draft.__marca_id) {
-        await actualizar(draft, setLoading);            // EDIT: PUT/PATCH
+        await actualizar(draft, setLoading);
         add("success", "Cambios guardados", "La marca se actualizó correctamente.");
       } else {
-        await crear(draft, setLoading);                 // CREATE: POST
+        await crear(draft, setLoading);
         add("success", "Marca creada", "La marca se creó correctamente.");
-        // opcional: resetDraft();
       }
     } catch (e: any) {
       add("error", "Error", e?.message ?? "No fue posible completar la operación.");
@@ -108,7 +105,6 @@ export default function Step3({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Información de la Marca */}
           <SummarySection title="Información de la Marca" icon={<Tag className="w-4 h-4 text-rose-500" />} delay={0.1}>
             <ChangedWrap changed={isChanged(initial, draft, ["nombre"])}>
               <SummaryInfo icon={<Hash className="w-4 h-4 text-zinc-500" />} label="Nombre" value={draft.nombre} />
@@ -118,7 +114,6 @@ export default function Step3({
             </ChangedWrap>
           </SummarySection>
 
-          {/* Titular: SIEMPRE visible, aunque haya titular_id */}
           <SummarySection
             title="Titular"
             icon={
@@ -199,7 +194,6 @@ export default function Step3({
             )}
           </SummarySection>
 
-          {/* Contacto: SIEMPRE visible */}
           <SummarySection title="Contacto" icon={<Mail className="w-4 h-4 text-purple-500" />} delay={0.3}>
             <ChangedWrap
               changed={
@@ -237,7 +231,6 @@ export default function Step3({
             </ChangedWrap>
           </SummarySection>
 
-          {/* Información Empresarial: SIEMPRE visible */}
           <SummarySection title="Información Empresarial" icon={<TrendingUp className="w-4 h-4 text-orange-500" />} delay={0.4}>
             <ChangedWrap changed={isChanged(initial, draft, ["info_empresarial", "sector"])}>
               <SummaryInfo icon={<Building2 className="w-4 h-4 text-zinc-500" />} label="Sector" value={draft.info_empresarial?.sector ?? ""} />

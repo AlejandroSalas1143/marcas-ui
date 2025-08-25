@@ -9,7 +9,6 @@ import { useMarcaDraft } from "@/hooks/useMarcaDraft";
 import type { MarcaCreate, MarcaOut } from "@/types";
 import type { DeepPartial } from "@/types/utils";
 
-// UI reutilizable
 import {
   Card,
   CardHeader,
@@ -28,8 +27,8 @@ type Draft = DeepPartial<MarcaCreate>;
 
 type Props = {
   initial?: MarcaOut;
-  mode?: "create" | "edit";   // override opcional
-  basePath?: string;          // prefijo para navegación (default: /registro-marca)
+  mode?: "create" | "edit";
+  basePath?: string;
 };
 
 export default function Step2({
@@ -38,9 +37,8 @@ export default function Step2({
   const { draft, setDraft, hydrated, mode } = useMarcaDraft();
   const tipo = (draft.titular?.tipo_persona as TipoPersonaOpcion) ?? "";
 
-  if (!hydrated) return null; // evita parpadeo antes de hidratar localStorage
+  if (!hydrated) return null;
 
-  // Helper para "mergear" parciales en la rama indicada
   const patch = <K extends keyof Draft>(key: K, partial: Partial<Draft[K]>) => {
     setDraft((d) => ({
       ...d,
@@ -72,7 +70,6 @@ export default function Step2({
 
   return (
     <section className="space-y-6">
-      {/* Información del Titular */}
       <Card>
         <CardHeader>
           <CardTitle>{mode === "edit" ? "Editar Titular" : "Información del Titular"}</CardTitle>
@@ -267,7 +264,6 @@ export default function Step2({
         </CardContent>
       </Card>
 
-      {/* Información empresarial */}
       <Card>
         <CardHeader>
           <CardTitle>Información empresarial</CardTitle>
@@ -312,7 +308,6 @@ export default function Step2({
         </CardContent>
       </Card>
 
-      {/* Navegación integrada */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

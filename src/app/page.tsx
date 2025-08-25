@@ -29,7 +29,6 @@ export default async function Home() {
 
   return (
     <div className="space-y-8">
-      {/* Hero Section - Encabezado Principal */}
       <div className="relative bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 rounded-2xl border border-gray-200 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-pink-500/5 to-purple-500/5"></div>
         <div className="relative px-8 py-10">
@@ -50,7 +49,6 @@ export default async function Home() {
               </div>
             </div>
             
-            {/* CTA Principal */}
             <Link
               href="/registro-marca/step-1"
               className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
@@ -64,9 +62,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Stats Cards - Mejoradas */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Total Marcas */}
         <div className="group bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 hover:border-blue-300">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
@@ -88,7 +84,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* En Trámite */}
         <div className="group bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 hover:border-yellow-300">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
@@ -110,7 +105,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Aprobadas */}
         <div className="group bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 hover:border-green-300">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
@@ -132,7 +126,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Rechazadas */}
         <div className="group bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 hover:border-red-300">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
@@ -155,7 +148,6 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Quick Actions - Rediseñadas */}
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center">
@@ -170,7 +162,6 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {/* Nueva Marca */}
           <Link
             href="/registro-marca/step-1"
             className="group relative p-6 bg-gradient-to-br from-rose-50 to-pink-50 border-2 border-rose-200 rounded-xl hover:border-rose-400 hover:shadow-lg transition-all duration-300 overflow-hidden"
@@ -199,7 +190,6 @@ export default async function Home() {
             </div>
           </Link>
 
-          {/* Gestionar Marcas */}
           <Link
             href="/registro-marca"
             className="group relative p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all duration-300 overflow-hidden"
@@ -228,7 +218,6 @@ export default async function Home() {
             </div>
           </Link>
 
-          {/* Búsqueda */}
           <Link
             href="/busqueda"
             className="group relative p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl hover:border-green-400 hover:shadow-lg transition-all duration-300 overflow-hidden"
@@ -257,7 +246,6 @@ export default async function Home() {
             </div>
           </Link>
 
-          {/* Reportes */}
           <Link
             href="/reportes"
             className="group relative p-6 bg-gradient-to-br from-purple-50 to-violet-50 border-2 border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300 overflow-hidden"
@@ -288,7 +276,6 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Recent Activity Section - Nueva sección */}
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">

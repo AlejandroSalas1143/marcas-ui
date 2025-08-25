@@ -31,7 +31,6 @@ export default async function MarcasPage({ searchParams }: PageProps) {
 
   const marcas = await api.listMarcas(q, { identificacion, clase, sort });
 
-  // Estadísticas para la página
   const totalMarcas = marcas.length;
 
   const getEstadoColor = (estado: string) => {
@@ -59,7 +58,6 @@ export default async function MarcasPage({ searchParams }: PageProps) {
 
   return (
     <div className="space-y-6">
-      {/* Header with Stats */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
@@ -87,14 +85,12 @@ export default async function MarcasPage({ searchParams }: PageProps) {
         </div>
       </div>
 
-      {/* Filters and Search - Usando el nuevo componente */}
       <SearchFilters 
         initialQ={q}
         initialIdentificacion={identificacion}
         initialClase={clase}
       />
 
-      {/* Table */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
         {marcas.length === 0 ? (
           <div className="text-center py-12">
@@ -205,7 +201,6 @@ export default async function MarcasPage({ searchParams }: PageProps) {
           </div>
         )}
 
-        {/* Pagination */}
         {marcas.length > 0 && (
           <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
             <div className="flex items-center justify-between">

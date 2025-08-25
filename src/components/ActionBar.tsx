@@ -9,7 +9,7 @@ export function ActionBar({
   delay = 0.5,
 }: {
   backHref: string;
-  right?: React.ReactNode; // botones extra a la derecha
+  right?: React.ReactNode;
   delay?: number;
 }) {
   return (

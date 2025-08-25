@@ -10,7 +10,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Cerrar sidebar en mobile cuando cambie la ruta
   useEffect(() => {
     setSidebarOpen(false);
   }, [pathname]);
@@ -25,12 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
-        {/* Header */}
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
           <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-            {/* Logo - Opción con imagen */}
             <Link href="/" className="flex items-center gap-3">
-              {/* Opción A: Solo imagen */}
               <div className="relative h-10 w-auto">
                 <Image
                   src="/image/logo.webp"
@@ -43,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </Link>
 
-            {/* Navigation - Desktop */}
             <nav className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
                 Soluciones
@@ -59,7 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </button>
             </nav>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100"
@@ -71,9 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        {/* Layout Container */}
         <div className="flex min-h-[calc(100vh-4rem)] relative">
-          {/* Overlay para mobile */}
           {sidebarOpen && (
             <div
               className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
@@ -81,11 +73,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
           )}
 
-          {/* Sidebar - Fija con ancho fijo */}
           <aside
             className={`
     fixed inset-y-0 left-0 top-16
-    w-full md:w-64   /* 👈 full en mobile, 64 en desktop */
+    w-full md:w-64
     bg-white border-r border-gray-200 shadow-sm z-50
     transform transition-transform duration-300 ease-in-out
     ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
@@ -94,7 +85,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     h-[calc(100vh-4rem)]
   `}
           >
-            {/* User Section */}
             <div className="p-6 border-b border-gray-200 flex-shrink-0">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center text-white font-semibold text-sm">
@@ -116,9 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
 
-            {/* Navigation - Con scroll independiente */}
             <nav className="flex-1 overflow-y-auto p-4">
-              {/* Dashboard */}
               <div className="mb-6">
                 <Link
                   href="/"
@@ -144,7 +132,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </Link>
               </div>
 
-              {/* Services Section */}
               <div>
                 <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                   Servicios
@@ -175,7 +162,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </nav>
 
-            {/* Footer - Fijo en la parte inferior */}
             <div className="p-4 border-t border-gray-200 flex-shrink-0">
               <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
                 <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -187,9 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </aside>
 
-          {/* Main Content - Con padding left para compensar sidebar en desktop */}
           <main className="flex-1 md:ml-64 overflow-auto bg-gray-50">
-            {/* Page Content */}
             <div className="max-w-7xl mx-auto p-6">
               {children}
             </div>

@@ -21,26 +21,23 @@ export const api = {
   ): Promise<MarcaOut[]> {
     const url = new URL(`${BASE}/marcas/`);
     if (search) url.searchParams.set("search", search);
-    // Quita estos si el backend no los usa:
-    if (opts?.identificacion) url.searchParams.set("identificacion", opts.identificacion); // titular CC/NIT
+    if (opts?.identificacion) url.searchParams.set("identificacion", opts.identificacion);
     if (opts?.clase) url.searchParams.set("clase", opts.clase);
     if (opts?.sort) url.searchParams.set("sort", opts.sort);
 
-    const res = await fetch(url.toString(), { cache: "no-store" /*, credentials:"include"*/ });
+    const res = await fetch(url.toString(), { cache: "no-store"});
     return handle<MarcaOut[]>(res);
   },
 
   async getMarca(id: number): Promise<MarcaOut> {
-    const res = await fetch(`${BASE}/marcas/${id}`, { cache: "no-store" /*, credentials:"include"*/ });
+    const res = await fetch(`${BASE}/marcas/${id}`, { cache: "no-store"});
     return handle<MarcaOut>(res);
   },
 
   async updateMarca(id: number, body: any): Promise<MarcaOut> {
-    // PUT anidado
     const res = await fetch(`${BASE}/marcas/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      // credentials: "include",
       body: JSON.stringify(body),
     });
     return handle<MarcaOut>(res);
@@ -50,7 +47,6 @@ export const api = {
     const res = await fetch(`${BASE}/marcas/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      // credentials: "include",
       body: JSON.stringify(payload),
     });
     return handle<MarcaOut>(res);
@@ -59,7 +55,6 @@ export const api = {
   async deleteMarca(id: number): Promise<void> {
     const res = await fetch(`${BASE}/marcas/${id}`, {
       method: "DELETE",
-      // credentials: "include",
     });
     await handle<void>(res);
   },

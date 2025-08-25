@@ -16,8 +16,6 @@ function getStepIndex(path: string) {
 }
 
 function getBase(path: string) {
-  // /registro-marca  (create)
-  // /registro-marca/:id/edit (edit)
   const m = path.match(/^\/registro-marca(?:\/(\d+)\/edit)?/i);
   if (m && m[1]) return `/registro-marca/${m[1]}/edit`;
   return "/registro-marca";

@@ -6,11 +6,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="space-y-4">
-      {/* Breadcrumb dinámico */}
       <Breadcrumb
         className="mb-2"
         prefixItems={[
-          { href: "/servicios", label: "Servicios" },
+          { href: "/", label: "Dashboard" },
         ]}
         labelMap={{
           marcas: "Registro de Marca",

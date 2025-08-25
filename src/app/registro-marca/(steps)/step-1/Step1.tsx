@@ -18,8 +18,8 @@ import { AnimatedInput } from "@/components/ui/AnimatedInput";
 
 type Props = {
   initial?: MarcaOut;
-  mode?: "create" | "edit";   // opcional, override
-  basePath?: string;          // para el botón "Continuar"
+  mode?: "create" | "edit";
+  basePath?: string;
 };
 
 export default function Step1({
@@ -29,7 +29,6 @@ export default function Step1({
 }: Props) {
   const { draft, setDraft, bootstrap, mode, hydrated } = useMarcaDraft();
 
-  // Solo bootstrapea si cambia el ID de la marca
   const lastIdRef = useRef<number | null>(null);
   useEffect(() => {
     if (!initial || !hydrated) return;
@@ -40,7 +39,7 @@ export default function Step1({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initial?.id, hydrated, modeProp]);
 
-  if (!hydrated) return null; // evita parpadeo antes de hidratar
+  if (!hydrated) return null;
 
   return (
     <section className="space-y-6">
@@ -54,7 +53,6 @@ export default function Step1({
 
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Nombre de la marca */}
             <div className="space-y-2">
               <AnimatedInput
                 label="Nombre de la marca"
@@ -65,7 +63,6 @@ export default function Step1({
               />
             </div>
 
-            {/* Clase de Niza */}
             <div className="space-y-2">
               <AnimatedInput
                 label="Clase de Niza (1 - 45)"

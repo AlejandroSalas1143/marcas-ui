@@ -65,9 +65,7 @@ export default function SearchFilters({
 
       <div className="p-6">
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Search Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Búsqueda principal */}
             <div className="space-y-2">
               <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
                 <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +99,6 @@ export default function SearchFilters({
               </div>
             </div>
 
-            {/* Búsqueda por identificación */}
             <div className="space-y-2">
               <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
                 <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,7 +122,6 @@ export default function SearchFilters({
             </div>
           </div>
 
-          {/* Advanced Filters */}
           <div className="border-t border-gray-100 pt-6">
             <div className="flex items-center gap-2 mb-4">
               <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,7 +131,6 @@ export default function SearchFilters({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Filtro por clase */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">Clase de Niza</label>
                 <div className="relative">
@@ -164,7 +159,6 @@ export default function SearchFilters({
             </div>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-gray-100">
             <div className="flex items-center gap-3">
               <button
@@ -189,7 +183,6 @@ export default function SearchFilters({
               </button>
             </div>
 
-            {/* Resumen de filtros activos */}
             {(q || identificacion || clase) && (
               <div className="flex items-center gap-2 text-sm text-gray-600 ml-auto">
                 <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -27,7 +27,6 @@ export default function ConfirmDialog({
   onConfirm,
   closeOnBackdrop = true,
 }: Props) {
-  // ESC para cerrar, Enter para confirmar
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -42,7 +41,6 @@ export default function ConfirmDialog({
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop */}
           <motion.div
             className="fixed inset-0 bg-black/40 backdrop-blur-[2px] z-50"
             initial={{ opacity: 0 }}
@@ -51,7 +49,6 @@ export default function ConfirmDialog({
             onClick={closeOnBackdrop ? onClose : undefined}
           />
 
-          {/* Modal */}
           <motion.div
             role="dialog"
             aria-modal="true"

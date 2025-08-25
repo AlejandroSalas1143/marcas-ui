@@ -1,4 +1,3 @@
-// components/Transition.tsx
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,7 +9,6 @@ function getStepIndex(path: string) {
   return m ? parseInt(m[1], 10) : null;
 }
 
-// Estado global para la dirección - se mantiene durante toda la transición
 let globalDirection: 1 | -1 = 1;
 
 const variants = {
@@ -37,13 +35,11 @@ export default function Transition({ children }: { children: React.ReactNode }) 
     const curr = getStepIndex(pathname);
     const prev = prevStepRef.current;
     
-    // Solo actualizar dirección en navegaciones reales
     if (prev !== null && curr !== null && prev !== curr) {
       globalDirection = curr > prev ? 1 : -1;
       console.log(`Navigation: step-${prev} → step-${curr}, direction: ${globalDirection}`);
     }
     
-    // Actualizar refs y route key
     prevStepRef.current = curr;
     setRouteKey(curr ?? pathname);
     

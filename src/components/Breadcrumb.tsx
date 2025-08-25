@@ -7,13 +7,9 @@ import * as React from "react";
 type Crumb = { href?: string; label: string };
 
 type Props = {
-  /** Si pasas `items`, se usa tal cual (no se autogenera) */
   items?: Crumb[];
-  /** Elementos a anteponer (ej. “Servicios”) */
   prefixItems?: Crumb[];
-  /** Mapeo de slug -> etiqueta amigable */
   labelMap?: Record<string, string>;
-  /** Separador personalizado */
   separator?: React.ReactNode;
   className?: string;
 };
@@ -49,7 +45,7 @@ export default function Breadcrumb({
 
     let acc = "";
     return parts
-      .filter((seg) => !/^\d+$/.test(seg)) // ⬅️ Oculta los números puros
+      .filter((seg) => !/^\d+$/.test(seg))
       .map((seg, i, arr) => {
         acc += `/${seg}`;
         const isLast = i === arr.length - 1;
@@ -62,14 +58,13 @@ export default function Breadcrumb({
 
         return {
           label: mapped,
-          href: !isLast && !isEdit ? acc : undefined, // ⬅️ evita link en "edit"
+          href: !isLast && !isEdit ? acc : undefined,
 
         };
       });
   }, [pathname, labelMap]);
 
 
-  // Decide: items manuales o autogenerados
   const finalItems = React.useMemo(
     () => [...(prefixItems ?? []), ...(items ?? autoItems)],
     [prefixItems, items, autoItems]

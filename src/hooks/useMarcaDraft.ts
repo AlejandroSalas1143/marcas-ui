@@ -5,13 +5,12 @@ import { useCallback, useEffect, useState } from "react";
 import type { MarcaCreate, MarcaOut } from "@/types";
 import { DeepPartial } from "@/types/utils";
 
-// 👇 metadatos de frontend (no forman parte del DTO del backend)
 type DraftMeta = {
-  __marca_id?: number;   // id de la marca cuando estás en edición
-  titular_id?: number;   // útil si trabajas con titular existente
+  __marca_id?: number;
+  titular_id?: number;
 };
 
-type Draft = DeepPartial<MarcaCreate> & DraftMeta;  // 👈 aquí unimos
+type Draft = DeepPartial<MarcaCreate> & DraftMeta;
 
 type Mode = "create" | "edit";
 
@@ -56,8 +55,8 @@ export function useMarcaDraft() {
 
   const bootstrap = useCallback((initial: MarcaOut, nextMode: Mode = "edit") => {
     const mapped: Draft = {
-      __marca_id: (initial as any).id,           // 👈 ahora es válido
-      titular_id: (initial as any).titular?.id,  // opcional pero útil
+      __marca_id: (initial as any).id,
+      titular_id: (initial as any).titular?.id,
 
       nombre: initial.nombre,
       clase_niza: initial.clase_niza,
@@ -65,11 +64,9 @@ export function useMarcaDraft() {
       titular: initial.titular
         ? {
             tipo_persona: initial.titular.tipo_persona,
-            // Natural
             nombres: initial.titular.nombres ?? undefined,
             apellidos: initial.titular.apellidos ?? undefined,
             identificacion: initial.titular.identificacion ?? undefined,
-            // Jurídica
             razon_social: initial.titular.razon_social ?? undefined,
             nit: initial.titular.nit ?? undefined,
             rep_legal_nombres: initial.titular.rep_legal_nombres ?? undefined,

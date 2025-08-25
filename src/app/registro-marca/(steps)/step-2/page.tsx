@@ -1,6 +1,6 @@
 "use client";
 
-import Step2 from "./Step2";   // 👈 importa tu componente
+import Step2 from "./Step2";
 
 export default function Step2Page() {
   return (
