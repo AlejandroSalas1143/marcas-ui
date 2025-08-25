@@ -4,5 +4,5 @@
 👉 [https://marcas-ui.vercel.app/](https://marcas-ui.vercel.app/)
 
 Ahí se puede ver la interfaz funcionando.  
-Aclaro que tuve un error al enviar el documento anterior y compartí un link equivocado.  
+Aclaro que tuve un error al enviar el documento y compartí un link equivocado.  
 Este es el correcto ✅
